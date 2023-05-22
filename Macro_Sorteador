@@ -1,0 +1,25 @@
+Sub Sorteio()
+'
+' Sorteio Macro
+'
+
+'
+    Sheets("TELA DE SORTEIO").Select
+    Sheets("DADOS").Visible = True
+    Sheets("DADOS").Select
+    Calculate
+    Range("G6:O7").Select
+    Selection.Copy
+    Sheets("TELA DE SORTEIO").Select
+    Range("D4").Select
+    Selection.PasteSpecial Paste:=xlPasteAllUsingSourceTheme, Operation:=xlNone _
+        , SkipBlanks:=False, Transpose:=False
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+        :=False, Transpose:=False
+    Range("D4:L4").Select
+    Sheets("Dados").Select
+    Application.CutCopyMode = False
+    Sheets("DADOS").Select
+    ActiveWindow.SelectedSheets.Visible = False
+    Sheets("Tela de Sorteio").Select
+End Sub
